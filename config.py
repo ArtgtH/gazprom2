@@ -1,9 +1,11 @@
-from bot import Filter
-
 API_TOKEN = '6277920991:AAGS0U71SqLc-KvFFosNMwmxzAUWBmUEGpA'
 table_url = 'https://docs.google.com/spreadsheets/d/1lAR44nxkqTPxxcGkM97tPWBPADLI-Xyr/edit#gid=2074020589'
 
+class Filter:
 
+    def __init__(self):
+        self.data = ['0', '0', '0', '0']
+        self.key_words = []
 
 greeting = f'Привет, меня зовут GazpromNefteBot\nЯ создан, чтобы находить информацию в гугл-таблице'
 

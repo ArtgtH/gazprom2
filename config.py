@@ -1,3 +1,5 @@
+from bot import Filter
+
 API_TOKEN = '6277920991:AAGS0U71SqLc-KvFFosNMwmxzAUWBmUEGpA'
 table_url = 'https://docs.google.com/spreadsheets/d/1lAR44nxkqTPxxcGkM97tPWBPADLI-Xyr/edit#gid=2074020589'
 
@@ -28,7 +30,7 @@ bd = {
 
 
 def search_by_key(key):
-    res = []
+    res = Filter
     try:
         res = bd[key]
     except KeyError as er:

@@ -3,4 +3,3 @@ aspose-words
 pandas
 oauth2client
 gspread
-PyICU

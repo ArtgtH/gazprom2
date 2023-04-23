@@ -51,9 +51,27 @@ df['SEARCH'] = df['Наименование сценария'].astype(str) + ' '
 
 
 # генерация итогового документа
-def Result_generation(data_to_generate):
-    document = data_to_generate
-    return document
+def Result_generation (filt, key_words):
+
+    data_to_generate = Search (filt,key_words)
+    doc = aw.Document()
+    builder = aw.DocumentBuilder(doc)
+    font = builder.font
+    font.size = 14
+    font.bold = False
+    font.name = "Arial"
+    numb = 0
+
+    for i in data_to_generate['Наименование сценария']:
+        numb+=1
+        builder.writeln(str(numb)+") "+i)
+
+    try:
+        doc.save('result.doc')
+    except:
+        pass
+
+    return ('result.doc')
 
 
 # поиск по фильтру
@@ -90,28 +108,3 @@ def Search_Key_Words (key_words, filtred_data):
 # просто поиск
 def Search(filt, key_words):
     return Search_Key_Words(key_words, Search_Filtr(filt))
-
-df = Result_generation(df)
-
-
-def Result_generation (filt, key_words):
-
-    data_to_generate = Search (filt,key_words)
-    doc = aw.Document()
-    builder = aw.DocumentBuilder(doc)
-    font = builder.font
-    font.size = 14
-    font.bold = False
-    font.name = "Arial"
-    numb = 0
-
-    for i in data_to_generate['Наименование сценария']:
-        numb+=1
-        builder.writeln(str(numb)+") "+i)
-
-    try:
-        doc.save('result.doc')
-    except:
-        pass
-
-    return ('result.doc')

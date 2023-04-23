@@ -1,5 +1,5 @@
 pyTelegramBotAPI
-aspose
+aspose-words
 pandas
 oauth2client
 gspread

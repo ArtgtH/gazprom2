@@ -1,4 +1,4 @@
-from config import API_TOKEN, greeting, commands, faq, helper, user_manual, bd, search_by_key
+from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key
 from parse import df, Search_Filtr, Search, Result_generation
 
 import telebot

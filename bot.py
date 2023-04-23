@@ -1,4 +1,4 @@
-from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key
+from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter
 from parse import df, Search_Filtr, Search, Result_generation
 
 import telebot
@@ -6,14 +6,6 @@ from telebot import types
 
 
 filter_class = 0
-
-
-class Filter:
-
-    def __init__(self):
-        self.data = ['0', '0', '0', '0']
-        self.key_words = []
-
 
 bot = telebot.TeleBot(API_TOKEN)
 

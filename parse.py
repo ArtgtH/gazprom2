@@ -82,6 +82,9 @@ def Result_generation (filt, key_words):
         numb+=1
         builder.writeln(str(numb)+") "+i)
 
-    doc.save('result.doc')
+    try:
+        doc.save('result.doc')
+    except:
+        pass
 
     return ('result.doc')

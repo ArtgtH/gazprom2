@@ -18,7 +18,19 @@ faq = f'тут будет раздел FAQ'
 
 
 
-helper = f'Тут будет реализован функционал вызова помощника'
+helper = f'Открываем открытую линию с поддержкой'
 
 
+
+bd = {
+
+}
+
+
+def search_by_key(key):
+    try:
+        res = bd[key]
+    except KeyError:
+        pass
+    return res
 

@@ -3,3 +3,5 @@ aspose-words
 pandas
 oauth2client
 gspread
+pyenv latest-version-number
+

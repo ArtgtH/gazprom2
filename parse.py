@@ -2,9 +2,9 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import aspose.words as aw
-from pymystem3 import Mystem
+# from pymystem3 import Mystem
 
-m = Mystem()
+# m = Mystem()
 # def lemmatize_sentence(text):
 #     lemmas = m.lemmatize(text)
 #     return "".join(lemmas).strip()

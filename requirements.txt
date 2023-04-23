@@ -1,5 +1,4 @@
-telebot
-pymystem3
+pyTelegramBotAPI
 aspose
 pandas
 oauth2client

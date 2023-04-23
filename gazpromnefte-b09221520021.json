@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gazpromnefte",
+  "private_key_id": "b0922152002115fc4648fc0534ac2e5033b37eb7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8LNSMv0nEE5dn\nkq2oIB4c/LED9pFj2aCbG8ebDzMBd6Vg/pbZDM8t0f3KHVKOFOyDxsrpv6L/ZmRM\nH4AplV3DxNw/5Q66YbMVozycoW+kAmKJodu1zjlx/wC0Ol2dmpD/XMf6NicLFmwj\nvokETj27CuYrFnT7GGHYKCUZhS/fkYiqO2R04yfRXEfihxDt611aJYtzs+a80xEQ\nbtxhKQJSy0N9CjQs5NpHxWTSrLR+HXu1S9gKW+w4rMTe7moYdSq7eewt3L/lvX/s\n0KWqBl/8lQtoyEyOjJ7mBY4VrwnbvFqRx7QKS24oGlOHhzbq443I1YrD6giUSQ6w\nVIq30J0xAgMBAAECggEAAZ0eIOClFLVOHVPsP/MmL0OWGrxSoehYTRLehxhRVv3a\ndwtDDpLC+RpPfhnFpuVHD15bwQb9MkPy1tTZYeO45B8fIt9KbjQ1egErMKBXRBGk\nwHsM+G3DmDh6GXSYm0AlUuvB6huQ6X16H5OiLBAtQaGPee0Zw10Br1AH/gWmEYT6\n6byAmo1qgM3oHcISV9OB/xk6MYtAzjTJrf/tyCjQoF7qy8g+kFoq341T6dyJRGrk\nyVVbMETHDsar4WRtUswy6zAVBEj3v/ZB95NUKL81cvOumNwlcCrifzbda3ZkKONI\nxcW5wD2b19cUJvAWnSMjfLxnawDBHPqQbhR7roenHwKBgQDcfaRfoFx2NDhlbeu0\nbYkDbiIK2Rfq7ozIyoCS5Ul3C7A6T09P8uAOLG8N9YJW0WAQ3zuYlbnvOpdqMr5O\nGwuHht4233CU+5vZv0UJeMxehVJk42Kid5hpiQtox/vlSqOOi1npwEUm6zgLWd19\n4Me+BYAX+WumVGLsx8JuDlaqawKBgQDaeuIOAV20Rsidq3OAqTBMNobTixzKBVV0\nr5yUCGZ544NjW2pnX4wikVJPuMzuY0+L2KHyyR/+dYzfDxICOakoWNY12sXkeV0H\nXTl3m04Nfkp3UMIrfvBHb0XNzYe5oGTv91EZx4vz/wCmGNDNjMjdHHDZhFnUzq8a\nMacKOc410wKBgF0P1qnZ2Ey3u7nrzBlKRhMhj9K+UF8DMn6pId1eU0SgtU/XG6Wl\n4DV7QaBFqC6WjpJwdgnv4Bt9wly7cCEtPw+DuBS2+CCZle0w0qWty6x1XxJf+siR\n681XX25pQgNEHoZSgK+tTEKh8vSviFHR5txoG+mCh5IbeelwYrrq6F9jAoGAesbF\nlDNGUlHY2WoJHYt2fc3ClMy/X/QBYvJxHmteEy88nbA4qmDyYlaiF/T1DR44DJGv\n6L0HwrqScKOKbj+zBN5vepI31T4yfjnwWnunMEQBWu3CQCk0pCAu7QmMNU+iiYvF\nQqR1zKdH2Q9m/6wXENKzxDjxNnrzwdeXVFLJxEsCgYEAgbWb5K+SLupNc7iXpDgD\ngKqmxPzk/J4G2qoG7mqbxF8pahZiLo8tfgpWblufoPrPh9Qbz6p0TafXIl6FLUpQ\n0xYe3JzysLQpJg5569zfa6SYB84OB27E6sRH2JURG7xPGhrrWJiRvHR8PBft/aNT\nRIwkLzgZuZwxHt4k0zEYA+0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "vsevolod@gazpromnefte.iam.gserviceaccount.com",
+  "client_id": "118346265691235939660",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vsevolod%40gazpromnefte.iam.gserviceaccount.com"
+}

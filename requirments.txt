@@ -1,0 +1,6 @@
+telebot
+pymystem3
+aspose
+pandas
+oauth2client
+gspread

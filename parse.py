@@ -2,6 +2,33 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import aspose.words as aw
+from pymystem3 import Mystem
+
+m = Mystem()
+# def lemmatize_sentence(text):
+#     lemmas = m.lemmatize(text)
+#     return "".join(lemmas).strip()
+#
+#     df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
+#     def Search_Key_Words (key_words, filtred_data):
+#         keyword_processor = KeywordProcessor()
+#
+#     key_words_lem = []
+#     for word in key_words:
+#         key_words_lem.extend(m.lemmatize(word))
+#
+#     if filtred_data.empty:
+#         filtred_data = df
+#
+#     filtred_data_key = filtred_data
+#
+#     keyword_processor.add_keywords_from_list(key_words_lem)
+#
+#     for x in key_words_lem:
+#
+#         filtred_data_key = filtred_data_key.loc[((df['SEARCH'].astype(str).str.contains(x)))]
+#
+#     return filtred_data_key
 
 
 # Подсоединение к Google Таблицам

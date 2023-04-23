@@ -30,7 +30,7 @@ bd = {
 
 
 def search_by_key(key):
-    res = Filter
+    res = Filter()
     try:
         res = bd[key]
     except KeyError as er:

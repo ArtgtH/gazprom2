@@ -221,7 +221,7 @@ def check_callback_data_2(callback) -> None:
 @bot.callback_query_handler(lambda callback: int(callback.data[0]) in (0, 1, 2, 3))
 def filter_log(callback) -> None:
     group, text = callback.data[0], callback.data[1:]
-    bd[callback.message.chat.id].data[int(group)] = text
+    search_by_key(callback.message.chat.id).data[int(group)] = text
     res = bd[callback.message.chat.id].data[int(group)]
     df_filter = str(Search_Filtr(bd[callback.message.chat.id].data).shape[0])
 

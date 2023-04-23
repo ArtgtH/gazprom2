@@ -31,7 +31,8 @@ def search_by_key(key):
     res = []
     try:
         res = bd[key]
-    except KeyError:
-        pass
+    except KeyError as er:
+        print(er)
+
     return res
 

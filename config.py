@@ -28,6 +28,7 @@ bd = {
 
 
 def search_by_key(key):
+    res = []
     try:
         res = bd[key]
     except KeyError:

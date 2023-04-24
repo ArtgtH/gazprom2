@@ -14,7 +14,11 @@ def Google_Table ():
   data_sheets = data.worksheets()
   return data_sheets
 
-df = pd.DataFrame(Google_Table()[0].get_all_records())
+df = pd.DataFrame(Google_Table()[0].get_all_records())[columns = ['Наименование сценария', 'Описание', 'Домен','Технология','Метод использования',
+                                                                  'Функциональная группа', 'Наименование | Бенчмаркинг (внешний рынок)', 
+                                                                  'Описание | Бенчмаркинг (внешний рынок)', 'Описание проекта в ГПН | НИОКР', 
+                                                                  'Описание проекта в ГПН | НИОКР', 'Название проекта | Проекты ЦТ', 'Потенциал решения'
+                                                                 'Рыночная зрелость','Организационная готовность','Реализуется в Газпром нефти?' ]]
 m = Mystem()
 
 df['SEARCH'] = df['Наименование сценария'].astype(str) + ' ' + df['Описание'].astype(str) + ' ' +\
@@ -40,7 +44,7 @@ df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
 def Result_generation (filt, key_words):
   data_to_generate = Search (filt,key_words)
   res = list(('Наименование сценария:  ' + data_to_generate['Наименование сценария'].astype(str) + '\n\n'
-   'Описание:  ' + data_to_generate['Описание'].astype(str) + '\n'
+   'Описание:\n* ' + data_to_generate['Описание'].astype(str) + '\n'
   + '\n >КЛАССИФИКАЦИЯ \n'
   + 'Функциональная группа:  ' + data_to_generate['Функциональная группа'].astype(str) + '\n'
   + 'Домен:  ' + data_to_generate['Домен'].astype(str) + '\n' 

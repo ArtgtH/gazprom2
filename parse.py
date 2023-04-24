@@ -25,9 +25,10 @@ df['SEARCH'] = df['Наименование сценария'].astype(str) + ' '
                    ['Описание проекта в ГПН | НИОКР'].astype(str) + \
                ' ' + df ['Название проекта | Проекты ЦТ'].astype(str)
 
-m = Mystem()
+
 # лемматизация текста для поиска
 def lemmatize_sentence(text):
+         m = Mystem()
          lemmas = m.lemmatize(text)
          return "".join(lemmas).strip()
 
@@ -75,7 +76,7 @@ def Search_Filtr (filt):
 
 
 def Search_Key_Words (key_words, filtred_data):
-
+  m = Mystem()
   key_words_lem = []
   for word in key_words:
     key_words_lem.extend(m.lemmatize(word))

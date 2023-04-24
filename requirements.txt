@@ -3,3 +3,4 @@ aspose-words
 pandas
 oauth2client
 gspread
+pymystem3

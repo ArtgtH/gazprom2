@@ -36,19 +36,19 @@ df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
 # генерация итоговых сообщений
 def Result_generation (filt, key_words):
   data_to_generate = Search (filt,key_words)
-  res = list(('Наименование сценария: ' + data_to_generate['Наименование сценария'].astype(str) + '\n'
-   'Описание: ' + data_to_generate['Описание'].astype(str) + '\n'
+  res = list(('Наименование сценария:  ' + data_to_generate['Наименование сценария'].astype(str) + '\n\n'
+   'Описание:  ' + data_to_generate['Описание'].astype(str) + '\n'
   + '\n >КЛАССИФИКАЦИЯ \n'
-  + 'Функциональная группа: ' + data_to_generate['Функциональная группа'].astype(str) + '\n'
-  + 'Домен: ' + data_to_generate['Домен'].astype(str) + '\n' 
-  + 'Технология: ' + data_to_generate['Технология'].astype(str) + '\n' 
-  + 'Метод использования: ' + data_to_generate['Метод использования'].astype(str) + '\n' + '\n'
+  + 'Функциональная группа:  ' + data_to_generate['Функциональная группа'].astype(str) + '\n'
+  + 'Домен:  ' + data_to_generate['Домен'].astype(str) + '\n' 
+  + 'Технология:  ' + data_to_generate['Технология'].astype(str) + '\n' 
+  + 'Метод использования:  ' + data_to_generate['Метод использования'].astype(str) + '\n' + '\n'
   + ' >ОСНОВНЫЕ МЕТРИКИ \n'
-  + 'Потенциал решения: ' + data_to_generate['Потенциал решения'].astype(str) + '\n'
-  + 'Рыночная зрелость: ' + data_to_generate['Рыночная зрелость'].astype(str) + '\n'
-  + 'Организационная готовность: ' + data_to_generate['Организационная готовность'].astype(str) + '\n'
+  + 'Потенциал решения:  ' + data_to_generate['Потенциал решения'].astype(str) + '\n'
+  + 'Рыночная зрелость:  ' + data_to_generate['Рыночная зрелость'].astype(str) + '\n'
+  + 'Организационная готовность:  ' + data_to_generate['Организационная готовность'].astype(str) + '\n'
   + '\n'
-  + 'Реализуется в Газпром нефти? ' + data_to_generate['Реализуется в Газпром нефти?'].astype(str)).astype(str).values)
+  + 'Реализуется в Газпром нефти?    ' + data_to_generate['Реализуется в Газпром нефти?'].astype(str)).astype(str).values)
   
   return res
          

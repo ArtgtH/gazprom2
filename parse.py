@@ -15,7 +15,7 @@ def Google_Table ():
   data_sheets = data.worksheets()
   return data_sheets
 
-df = pd.DataFrame(Google_Table[0].get_all_records())
+df = pd.DataFrame(Google_Table()[0].get_all_records())
 
 df['SEARCH'] = df['Наименование сценария'].astype(str) + ' ' + df['Описание'].astype(str) + ' ' +\
                df['Домен'].astype(str) + ' ' + df['Технология'].astype(str) + ' ' + \

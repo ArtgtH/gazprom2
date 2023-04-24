@@ -214,8 +214,8 @@ def check_callback_data_2(callback) -> None:
 def filter_log(callback) -> None:
     group, text = callback.data[0], callback.data[1:]
     search_by_key(callback.message.chat.id).data[int(group)] = text
-    res = bd[callback.message.chat.id].data[int(group)]
-    df_filter = str(Search_Filtr(bd[callback.message.chat.id].data).shape[0])
+    df_filter = str(Search(filt=search_by_key(callback.message.chat.id).data, key_words=search_by_key(callback.message.chat.id).key_words).shape[0])
+
 
     cur_filter = []
 

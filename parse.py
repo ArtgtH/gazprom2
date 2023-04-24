@@ -4,17 +4,19 @@ import pandas as pd
 import aspose.words as aw
 from pymystem3 import Mystem
 
-
-
 # Подсоединение к Google Таблицам
-scope = ['https://www.googleapis.com/auth/spreadsheets',
+def Google_Table ():
+  scope = ['https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name("gazpromnefte-b09221520021.json", scope)
-client = gspread.authorize(credentials)
-data = client.open("GazProm_data")
-data_sheets = data.worksheets()
+  credentials = ServiceAccountCredentials.from_json_keyfile_name("gazpromnefte-b09221520021.json", scope)
+  client = gspread.authorize(credentials)
 
-df = pd.DataFrame(data_sheets[0].get_all_records())
+  data = client.open("GazProm_data")
+  data_sheets = data.worksheets()
+  return data_sheets
+
+df = pd.DataFrame(Google_Table[0].get_all_records())
+
 df['SEARCH'] = df['Наименование сценария'].astype(str) + ' ' + df['Описание'].astype(str) + ' ' +\
                df['Домен'].astype(str) + ' ' + df['Технология'].astype(str) + ' ' + \
                df['Метод использования'].astype(str) \

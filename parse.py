@@ -1,7 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
-import aspose.words as aw
 from pymystem3 import Mystem
 
 # Подсоединение к Google Таблицам

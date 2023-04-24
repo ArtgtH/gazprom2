@@ -88,11 +88,11 @@ def delete(message) -> None:
 @bot.message_handler(regexp=r'Вывод результата')
 def result(message) -> None:
 
-    res = Result_generation(search_by_key(message.chat.id).data, search_by_key(message.chat.id).key_words)
+    res = ['ABOBA', 'ABOBA', 'ABOBA', 'ABOBA']
 
-    with open(res, 'rb') as res_file:
-        bot.send_message(message.chat.id, text='Ваш результат:')
-        bot.send_document(message.chat.id, res_file)
+    for i_message in res:
+        bot.send_message(message.chat.id, text=i_message)
+
 
 
 @bot.message_handler(commands=['manual'])

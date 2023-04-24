@@ -1,4 +1,4 @@
-from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter
+from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter, filter_manual, key_manual
 from parse import df, Search_Filtr, Search, Result_generation
 
 import telebot
@@ -111,7 +111,7 @@ def second_step(message) -> None:
             flag = True
 
             bot.send_message(
-                text='Инструкция для поиска по фильтру из класса',
+                text=filter_manual,
                 chat_id=message.chat.id,
             )
 
@@ -119,7 +119,7 @@ def second_step(message) -> None:
             flag = False
 
             bot.send_message(
-                text='Инструкция для поиска по ключевому слову из класса',
+                text=key_manual,
                 chat_id=message.chat.id,
             )
 

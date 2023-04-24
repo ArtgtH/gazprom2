@@ -15,6 +15,7 @@ def Google_Table ():
   return data_sheets
 
 df = pd.DataFrame(Google_Table()[0].get_all_records())
+m = Mystem()
 
 df['SEARCH'] = df['Наименование сценария'].astype(str) + ' ' + df['Описание'].astype(str) + ' ' +\
                df['Домен'].astype(str) + ' ' + df['Технология'].astype(str) + ' ' + \
@@ -28,7 +29,7 @@ df['SEARCH'] = df['Наименование сценария'].astype(str) + ' '
 
 # лемматизация текста для поиска
 def lemmatize_sentence(text):
-         m = Mystem()
+         
          lemmas = m.lemmatize(text)
          return "".join(lemmas).strip()
 
@@ -76,7 +77,6 @@ def Search_Filtr (filt):
 
 
 def Search_Key_Words (key_words, filtred_data):
-  m = Mystem()
   key_words_lem = []
   for word in key_words:
     key_words_lem.extend(m.lemmatize(word))

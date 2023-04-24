@@ -2,33 +2,8 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import aspose.words as aw
-# from pymystem3 import Mystem
+from pymystem3 import Mystem
 
-# m = Mystem()
-# def lemmatize_sentence(text):
-#     lemmas = m.lemmatize(text)
-#     return "".join(lemmas).strip()
-#
-#     df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
-#     def Search_Key_Words (key_words, filtred_data):
-#         keyword_processor = KeywordProcessor()
-#
-#     key_words_lem = []
-#     for word in key_words:
-#         key_words_lem.extend(m.lemmatize(word))
-#
-#     if filtred_data.empty:
-#         filtred_data = df
-#
-#     filtred_data_key = filtred_data
-#
-#     keyword_processor.add_keywords_from_list(key_words_lem)
-#
-#     for x in key_words_lem:
-#
-#         filtred_data_key = filtred_data_key.loc[((df['SEARCH'].astype(str).str.contains(x)))]
-#
-#     return filtred_data_key
 
 
 # Подсоединение к Google Таблицам
@@ -49,31 +24,35 @@ df['SEARCH'] = df['Наименование сценария'].astype(str) + ' '
                    ['Описание проекта в ГПН | НИОКР'].astype(str) + \
                ' ' + df ['Название проекта | Проекты ЦТ'].astype(str)
 
+m = Mystem()
+# лемматизация текста для поиска
+def lemmatize_sentence(text):
+         lemmas = m.lemmatize(text)
+         return "".join(lemmas).strip()
 
-# генерация итогового документа
+df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
+
+
+# генерация итоговых сообщений
 def Result_generation (filt, key_words):
-
-    data_to_generate = Search (filt,key_words)
-    doc = aw.Document()
-    builder = aw.DocumentBuilder(doc)
-    font = builder.font
-    font.size = 14
-    font.bold = False
-    font.name = "Arial"
-    numb = 0
-
-    for i in data_to_generate['Наименование сценария']:
-        numb+=1
-        builder.writeln(str(numb)+") "+i)
-
-    try:
-        doc.save('result.doc')
-    except:
-        pass
-
-    return ('result.doc')
-
-
+  data_to_generate = Search (filt,key_words)
+  res = list(('Наименование сценария: ' + data_to_generate['Наименование сценария'].astype(str) + '\n'
+   'Описание: ' + data_to_generate['Описание'].astype(str) + '\n'
+  + '\n >КЛАССИФИКАЦИЯ \n'
+  + 'Функциональная группа: ' + data_to_generate['Функциональная группа'].astype(str) + '\n'
+  + 'Домен: ' + data_to_generate['Домен'].astype(str) + '\n' 
+  + 'Технология: ' + data_to_generate['Технология'].astype(str) + '\n' 
+  + 'Метод использования: ' + data_to_generate['Метод использования'].astype(str) + '\n' + '\n'
+  + ' >ОСНОВНЫЕ МЕТРИКИ \n'
+  + 'Потенциал решения: ' + data_to_generate['Потенциал решения'].astype(str) + '\n'
+  + 'Рыночная зрелость: ' + data_to_generate['Рыночная зрелость'].astype(str) + '\n'
+  + 'Организационная готовность: ' + data_to_generate['Организационная готовность'].astype(str) + '\n'
+  + '\n'
+  + 'Реализуется в Газпром нефти? ' + data_to_generate['Реализуется в Газпром нефти?'].astype(str)).astype(str).values)
+  
+  return res
+         
+         
 # поиск по фильтру
 def Search_Filtr (filt):
     func_role = filt[0]
@@ -94,16 +73,25 @@ def Search_Filtr (filt):
     return filtred_data
 
 
-# поиск по ключевым словам
 def Search_Key_Words (key_words, filtred_data):
-    if filtred_data.empty:
-        filtred_data = df
-    else:
-        filtred_data_key = filtred_data
-    for x in key_words:
-        filtred_data_key = filtred_data_key.loc[(df['SEARCH'].astype(str).str.contains(x))]
+  keyword_processor = KeywordProcessor()
 
-    return filtred_data_key
+  key_words_lem = []
+  for word in key_words:
+    key_words_lem.extend(m.lemmatize(word))
+  
+  if filtred_data.empty:
+    filtred_data = df
+
+  filtred_data_key = filtred_data
+  
+  keyword_processor.add_keywords_from_list(key_words_lem)
+
+  for x in key_words_lem:
+      
+      filtred_data_key = filtred_data_key.loc[((df['SEARCH'].astype(str).str.contains(x)))]
+  
+  return filtred_data_key
 
 # просто поиск
 def Search(filt, key_words):

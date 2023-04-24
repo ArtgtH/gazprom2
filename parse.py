@@ -74,7 +74,6 @@ def Search_Filtr (filt):
 
 
 def Search_Key_Words (key_words, filtred_data):
-  keyword_processor = KeywordProcessor()
 
   key_words_lem = []
   for word in key_words:
@@ -84,8 +83,6 @@ def Search_Key_Words (key_words, filtred_data):
     filtred_data = df
 
   filtred_data_key = filtred_data
-  
-  keyword_processor.add_keywords_from_list(key_words_lem)
 
   for x in key_words_lem:
       

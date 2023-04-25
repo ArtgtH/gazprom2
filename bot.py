@@ -88,9 +88,9 @@ def delete(message) -> None:
 @bot.message_handler(regexp=r'Вывод результата')
 def result(message) -> None:
 
-    res = Result_generation (filt=search_by_key(message.chat.id).data, key_words=search_by_key(message.chat.id).key_words)
+    res = Result_generation(filt=search_by_key(message.chat.id).data, key_words=search_by_key(message.chat.id).key_words)
 
-    for i_message in res:
+    for i_message in res[:40]:
         bot.send_message(message.chat.id, text=i_message)
 
 

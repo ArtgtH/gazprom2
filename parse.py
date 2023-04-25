@@ -39,8 +39,8 @@ df['SEARCH'] = (df['SEARCH']).astype(str).apply(lemmatize_sentence)
 # генерация итоговых сообщений
 def Result_generation (filt, key_words):
   data_to_generate = Search (filt,key_words)
-  res = list(('Наименование сценария:  ' + data_to_generate['Наименование сценария'].astype(str) + '\n\n'
-   'Описание:\n* ' + data_to_generate['Описание'].astype(str) + '\n'
+  res = list(('>НАИМЕНОВАНИЕ СЦЕНАРИЯ:\n ' + data_to_generate['Наименование сценария'].astype(str) + '\n\n'
+   '>ОПИСАНИЕ:\n ' + data_to_generate['Описание'].astype(str) + '\n'
   + '\n >КЛАССИФИКАЦИЯ \n'
   + 'Функциональная группа:  ' + data_to_generate['Функциональная группа'].astype(str) + '\n'
   + 'Домен:  ' + data_to_generate['Домен'].astype(str) + '\n' 
@@ -51,7 +51,7 @@ def Result_generation (filt, key_words):
   + 'Рыночная зрелость:  ' + data_to_generate['Рыночная зрелость'].astype(str) + '\n'
   + 'Организационная готовность:  ' + data_to_generate['Организационная готовность'].astype(str) + '\n'
   + '\n'
-  + 'Реализуется в Газпром нефти?    ' + data_to_generate['Реализуется в Газпром нефти?'].astype(str)).astype(str).values)
+  + 'Реализуется в Газпром нефти?   ' + data_to_generate['Реализуется в Газпром нефти?'].astype(str)).astype(str).values)
   
   return res
          

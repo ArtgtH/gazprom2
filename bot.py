@@ -232,7 +232,8 @@ def filter_log(callback) -> None:
                                                     '\nСписок выбранных ключевых слов: ' + \
                                            ', '.join(search_by_key(callback.message.chat.id).key_words) + \
                                            '\nНайдено решений: ' + str(df_filter) + \
-                                            '\nДля перехода к следующему фильтру нажмите кнопку "фильтр"')
+                                            '\nДля перехода к следующему фильтру нажмите кнопку "фильтр"' + \
+                                            '\nДля вывода результатов нажмите кнопку "вывод результатов"')
 
 
 @bot.message_handler(regexp=r'\!')
@@ -256,7 +257,8 @@ def log_keywords(message):
 
     bot.send_message(message.chat.id, text='Список выбранных ключевых слов: ' + \
                                            ', '.join(search_by_key(message.chat.id).key_words) + \
-                                           '\n' + res + '\nНайдено решений: ' + str(search_res))
+                                           '\n' + res + '\nНайдено решений: ' + str(search_res)+ \
+                                            '\nДля вывода результатов нажмите кнопку "вывод результатов"')
 
 
 if __name__ == '__main__':

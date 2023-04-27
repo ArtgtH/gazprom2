@@ -94,7 +94,7 @@ def result(message) -> None:
     solution = Result_generation(filt=search_by_key(message.chat.id).data,
                             key_words=search_by_key(message.chat.id).key_words)
 
-    for i_message, num in solution[:40]:
+    for num, i_message in enumerate(solution[:40]):
         markup.add(types.InlineKeyboardButton(text='Хотите получить больше информации?', callback_data=f'Yes{num}'))
 
         bot.send_message(message.chat.id, text=i_message, reply_markup=markup)

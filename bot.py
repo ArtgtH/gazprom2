@@ -88,7 +88,7 @@ def delete(message) -> None:
 @bot.message_handler(regexp=r'Вывод результата')
 def result(message) -> None:
 
-    markup = types.ReplyKeyboardMarkup()
+    markup = types.InlineKeyboardMarkup()
     res = Result_generation(filt=search_by_key(message.chat.id).data,
                             key_words=search_by_key(message.chat.id).key_words)
 

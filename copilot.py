@@ -28,10 +28,10 @@ class Copilot:
 
         json_object = response
 
-        # Convert the JSON object to a JSON string
+        
         json_string = json.dumps(json_object)
 
-        # Parse the JSON string using json.loads()
+       
         parsed_json = json.loads(json_string)
 
         text = parsed_json['choices'][0]['text']

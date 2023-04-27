@@ -72,7 +72,7 @@ bd = {
 }
 
 
-answers_from_gpt = {
+solutions = {
 
 }
 

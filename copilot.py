@@ -23,7 +23,7 @@ class Copilot:
             engine="text-davinci-003",
             prompt=prompt,
             max_tokens=1024,
-            temperature=0.2,
+            temperature=0.25,
         )
 
         json_object = response

@@ -116,6 +116,8 @@ def gpt_search(callback):
     ask = findall(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
 
     question_final = question_part_1 + str(*ask)
+    
+    bot.send_message(callback.message.chat.id, text=question_final)
 
     answer = copilot.get_answer(question_final)
 

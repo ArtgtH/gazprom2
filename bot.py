@@ -91,12 +91,13 @@ def delete(message) -> None:
 @bot.message_handler(regexp=r'Вывод результата')
 def result(message) -> None:
 
-    markup = types.InlineKeyboardMarkup()
+    
     global solution 
     solution = Result_generation(filt=search_by_key(message.chat.id).data,
                             key_words=search_by_key(message.chat.id).key_words)
 
     for num, i_message in enumerate(solution[:40]):
+        markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text='Хотите получить больше информации?', callback_data=f'Yes{num}'))
 
         bot.send_message(message.chat.id, text=i_message, reply_markup=markup)

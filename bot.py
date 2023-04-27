@@ -4,6 +4,7 @@ from parse import df, Search_Filtr, Search, Result_generation
 import telebot
 from telebot import types
 
+solution = 0
 
 filter_class = 0
 
@@ -89,23 +90,25 @@ def delete(message) -> None:
 def result(message) -> None:
 
     markup = types.InlineKeyboardMarkup()
-    res = Result_generation(filt=search_by_key(message.chat.id).data,
+    global solution 
+    solution = Result_generation(filt=search_by_key(message.chat.id).data,
                             key_words=search_by_key(message.chat.id).key_words)
 
-    for num, i_message in enumerate(res[:40]):
+    for i_message, num in solution[:40]:
         markup.add(types.InlineKeyboardButton(text='Хотите получить больше информации?', callback_data=f'Yes{num}'))
 
         bot.send_message(message.chat.id, text=i_message, reply_markup=markup)
 
+@bot.callback_query_handler(func=lambda callback: callback.data.startswith('Yes'))
+def gpt_search(callback):
+    question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
+    index = int(callback[-1])
+    question_part_2 = solution[index]
+    question_final = question_part_1 + question_part_2
 
-    @bot.callback_query_handler(func = lambda callback: callback.data.startswith('Yes'))
-    def gpt_search(callback):
-        question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
-        index = int(callback[-1])
-        question_part_2 = res[index]
-        question_final = question_part_1 + question_part_2
+    answer = copilot.get_answer(question_final)
 
-        copilot.get_answer(question_final)
+    bot.send_message(callback.message.chat.id, text=answer)
 
 
 

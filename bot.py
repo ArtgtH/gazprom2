@@ -3,6 +3,8 @@ from parse import df, Search_Filtr, Search, Result_generation
 import telebot
 from telebot import types
 from copilot import Copilot
+from re import search
+
 
 copilot = Copilot()
 solution = 0
@@ -101,13 +103,16 @@ def result(message) -> None:
 
         bot.send_message(message.chat.id, text=i_message, reply_markup=markup)
 
+  
+
 @bot.callback_query_handler(func=lambda callback: callback.data.startswith('Yes'))
 def gpt_search(callback):
     question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
     index = int(callback.data[-1])
     question_part_2 = solution[index]
+    question_part_2 = re.search('>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
     question_final = question_part_1 + question_part_2
-    bot.send_message(callback.message.chat.id, text=', '.join(question_part_2.split('\n')))
+    bot.send_message(callback.message.chat.id, text=question_part_2)
 
     answer = copilot.get_answer(question_final)
 

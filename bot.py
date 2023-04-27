@@ -88,10 +88,24 @@ def delete(message) -> None:
 @bot.message_handler(regexp=r'Вывод результата')
 def result(message) -> None:
 
-    res = Result_generation(filt=search_by_key(message.chat.id).data, key_words=search_by_key(message.chat.id).key_words)
+    markup = types.ReplyKeyboardMarkup()
+    res = Result_generation(filt=search_by_key(message.chat.id).data,
+                            key_words=search_by_key(message.chat.id).key_words)
 
-    for i_message in res[:40]:
-        bot.send_message(message.chat.id, text=i_message)
+    for i_message, num in res[:40]:
+        markup.add(types.InlineKeyboardButton(text='Хотите получить больше информации?', callback_data=f'Yes{num}'))
+
+        bot.send_message(message.chat.id, text=i_message, reply_markup=markup)
+
+
+    @bot.callback_query_handler(func = lambda callback: callback.data.startswith('Yes'))
+    def gpt_search(callback):
+        question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
+        index = int(callback[-1])
+        question_part_2 = res[index]
+        question_final = question_part_1 + question_part_2
+
+        copilot.get_answer(question_final)
 
 
 

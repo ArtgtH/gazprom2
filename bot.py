@@ -102,7 +102,7 @@ def result(message) -> None:
 @bot.callback_query_handler(func=lambda callback: callback.data.startswith('Yes'))
 def gpt_search(callback):
     question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
-    index = int(callback[-1])
+    index = int(callback.data[-1])
     question_part_2 = solution[index]
     question_final = question_part_1 + question_part_2
 

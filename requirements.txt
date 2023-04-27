@@ -3,3 +3,5 @@ pandas
 oauth2client
 gspread
 pymystem3
+openai
+python-dotenv

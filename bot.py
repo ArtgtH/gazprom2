@@ -120,14 +120,7 @@ def gpt_search(callback):
     answer = copilot.get_answer(question_final)
 
 
-    #answer = list(answer)
-
-    #for num, i in enumerate(answer[::-1], start=1):
-     #   if i == '.':
-      #      break
-       # answer.pop(-num)
-
-    #answer = ''.join(answer)
+    answer = (answer[::-1].partition('.')[2])[::-1]
 
     bot.send_message(callback.message.chat.id, text=answer)
 

@@ -109,13 +109,13 @@ def result(message) -> None:
 def gpt_search(callback):
 
     bot.send_message(callback.message.chat.id, text='Ваш запрос в обработке')
-    question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
+    question_part_1 = 'Chat-GPT, подробно опиши в стилистике корпоративного отчета, как в деятельности нескольких реальных компаний используется следующее технологическое решение:"'
     index = int(callback.data[-1])
     question_part_2 = solution[index]
     question_part_2 = ' '.join(question_part_2.split('\n'))
     ask = findall(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
 
-    question_final = question_part_1 + str(*ask)
+    question_final = question_part_1 + str(*ask) + '"'
     
     bot.send_message(callback.message.chat.id, text=question_final)
 

@@ -1,4 +1,5 @@
 from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter, filter_manual, key_manual, solutions
+from parse import df, Search_Filtr, Search, Result_generation
 import telebot
 from telebot import types
 from copilot import Copilot

@@ -3,7 +3,7 @@ from parse import df, Search_Filtr, Search, Result_generation
 import telebot
 from telebot import types
 from copilot import Copilot
-from re import search
+from re import findall
 
 
 copilot = Copilot()
@@ -110,8 +110,10 @@ def gpt_search(callback):
     question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
     index = int(callback.data[-1])
     question_part_2 = solution[index]
-    ask = search(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2).string
-    question_final = question_part_1 + ask
+    question_part_2 = ' '.join(question_part_2.split('\n'))
+    ask = findall(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
+
+    question_final = question_part_1 + str(*ask)
 
     answer = copilot.get_answer(question_final)
 

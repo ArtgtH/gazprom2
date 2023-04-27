@@ -72,6 +72,12 @@ bd = {
 }
 
 
+answers_from_gpt = {
+
+}
+
+
+
 def search_by_key(key):
     res = Filter()
     try:

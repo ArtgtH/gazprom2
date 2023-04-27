@@ -109,7 +109,7 @@ def result(message) -> None:
 def gpt_search(callback):
 
     bot.send_message(callback.message.chat.id, text='Ваш запрос в обработке')
-    question_part_1 = 'Chat-GPT, подробно опиши в стилистике корпоративного отчета, как в деятельности нескольких реальных компаний используется следующее технологическое решение:"'
+    question_part_1 = 'Chat-GPT, подробно опиши в стилистике корпоративного отчета, как на примере реальных компаний используется следующее технологическое решение: "'
     index = int(callback.data[-1])
     question_part_2 = solution[index]
     question_part_2 = ' '.join(question_part_2.split('\n'))

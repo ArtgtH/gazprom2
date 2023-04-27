@@ -1,5 +1,4 @@
-from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter, filter_manual, key_manual
-from parse import df, Search_Filtr, Search, Result_generation
+from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter, filter_manual, key_manual, solutions
 import telebot
 from telebot import types
 from copilot import Copilot
@@ -93,9 +92,11 @@ def delete(message) -> None:
 def result(message) -> None:
 
     
-    global solution 
+    
     solution = Result_generation(filt=search_by_key(message.chat.id).data,
                             key_words=search_by_key(message.chat.id).key_words)
+    
+    solutions[message.chat.id] = solution
 
     for num, i_message in enumerate(solution[:40]):
         markup = types.InlineKeyboardMarkup()
@@ -111,8 +112,11 @@ def gpt_search(callback):
     bot.send_message(callback.message.chat.id, text='Ваш запрос в обработке')
     question_part_1 = 'Chat-GPT, подробно опиши в стилистике корпоративного отчета, как на примере реальных компаний используется следующее технологическое решение: "'
     index = int(callback.data[-1])
-    question_part_2 = solution[index]
+    question_part_2 = solutions[callback.message.chat.id][index]
     question_part_2 = ' '.join(question_part_2.split('\n'))
+    
+    
+    
     ask = findall(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
 
     question_final = question_part_1 + str(*ask) + '"'

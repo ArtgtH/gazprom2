@@ -1,9 +1,11 @@
 from config import API_TOKEN, greeting, faq, helper, user_manual, bd, search_by_key, Filter, filter_manual, key_manual
 from parse import df, Search_Filtr, Search, Result_generation
-
+from copilot import Copilot
 import telebot
 from telebot import types
 
+
+copilot = Copilot()
 solution = 0
 
 filter_class = 0

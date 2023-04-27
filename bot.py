@@ -125,7 +125,7 @@ def gpt_search(callback):
     answer = copilot.get_answer(question_final)
 
 
-    answer = (answer[::-1].partition('.')[2])[::-1]
+    answer = 'ВНЕШНЕРЫНОЧНЫЙ БЕНЧМАРКИНГ (по версии Chat-GPT):\n\n' + (answer[::-1].partition('.')[2])[::-1]
 
     bot.send_message(callback.message.chat.id, text=answer)
 

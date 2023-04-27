@@ -107,6 +107,8 @@ def result(message) -> None:
 
 @bot.callback_query_handler(func=lambda callback: callback.data.startswith('Yes'))
 def gpt_search(callback):
+
+    bot.send_message(callback.message.chat.id, text='Ваш запрос в обработке')
     question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
     index = int(callback.data[-1])
     question_part_2 = solution[index]
@@ -116,6 +118,16 @@ def gpt_search(callback):
     question_final = question_part_1 + str(*ask)
 
     answer = copilot.get_answer(question_final)
+
+
+    answer = list(answer)
+
+    for num, i in enumerate(answer[::-1], start=1):
+        if i == '.':
+            break
+        answer.pop(-num)
+
+    answer = ''.join(answer)
 
     bot.send_message(callback.message.chat.id, text=answer)
 

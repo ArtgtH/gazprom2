@@ -110,9 +110,8 @@ def gpt_search(callback):
     question_part_1 = 'Создай описание того, как технологическое решение с описанием ниже используется в деятельности реальных компаний: '
     index = int(callback.data[-1])
     question_part_2 = solution[index]
-    question_part_2 = search('>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2)
-    question_final = question_part_1 + question_part_2.string
-    bot.send_message(callback.message.chat.id, text=question_part_2.sring)
+    ask = search(r'>ОПИСАНИЕ:(.+?) >КЛАССИФИКАЦИЯ', question_part_2).string
+    question_final = question_part_1 + ask
 
     answer = copilot.get_answer(question_final)
 

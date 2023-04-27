@@ -107,7 +107,7 @@ def gpt_search(callback):
     index = int(callback.data[-1])
     question_part_2 = solution[index]
     question_final = question_part_1 + question_part_2
-    bot.send_message(callback.message.chat.id, text=question_part_2.split('\n')
+    bot.send_message(callback.message.chat.id, text=question_part_2.split('\n'))
 
     answer = copilot.get_answer(question_final)
 
